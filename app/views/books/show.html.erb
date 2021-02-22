@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" >
+      <%= render 'users/info', user: current_user %>
+      <%= render 'users/new', book: @book_new %>
+    </div>
+
+<div class="col-lg-8">
+  <h1>Book detail</h1>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td><%= attachment_image_tag @user, :profile_image, :fill, 100, 100,format:'jpeg', fallback:"no_image.jpg" %></td>
+    </tr>
+    <tr>
+     <td><%= link_to current_user.name, user_path(current_user.id) %></td>
+    </tr>
+    <tr>
+      <td>
+        <h4>Title</h4>
+       <%= @book.title %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>Opinion</h4>
+        <%= @book.body %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= link_to "Edit", edit_book_path(@book.id) %>
+        <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>

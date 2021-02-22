@@ -1,0 +1,18 @@
+<div class="profile-container">
+  <h1>User info</h1>
+  <p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+<table class= "table" >
+  <tbody>
+      <tr>
+         <th>name</th><th><%= user.name %></th>
+       </tr>
+       <tr>
+         <th>introduction</th><th><%= user.introduction %></th>
+       </tr>
+   </tbody>
+  </table>
+</div>
+
+<%= link_to "setting", edit_user_path(user.id), class: "btn btn-secondary" %>
+
+

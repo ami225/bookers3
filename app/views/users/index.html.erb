@@ -1,0 +1,29 @@
+<div class="container">
+   <div class="row">
+    <div class="col-lg-4" >
+     <%= render 'users/info', user: current_user %>
+     <%= render 'users/new', book: @book %>
+    </div>
+<div class="col-lg-8">
+    <h2>Users</h2>
+      <table>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td>
+            image:<%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+            </td>
+            <td>
+            name:<%= user.name %>
+            </td>
+            <td>
+            <%= link_to "Show", user_path(user.id) %>
+            </td>
+          </tr>
+          <% end %>
+          <%= paginate @users %>
+      </tbody>
+     </table>
+    </div>
+  </div>
+</div>
